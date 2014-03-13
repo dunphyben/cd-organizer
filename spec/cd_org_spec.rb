@@ -64,6 +64,16 @@ describe 'CD' do
     end
   end
 
+  describe '.search' do
+    it 'allows the user to search for a specific CD' do
+      test_cd1 = CD.create('Mozart', 'headbanging classical shit')
+      test_cd2 = CD.create('green', 'asdfasdf')
+      test_cd3 = CD.create('red', 'hkjlhjklkj')
+      test_cd4 = CD.create('blue', '123412341234')
+      CD.search('red').should eq test_cd3
+    end
+  end
+
 end
 
 

@@ -38,4 +38,36 @@ class CD
     @@all_cds = []
   end
 
+  # def search(searched_artist)
+  #   for @artist
+  #     in @@all_cds
+  #       if searched_artist.found? == true
+  #         @artist
+  #       end
+  #     end
+  #   end
+  # end
+
+  def CD.search(search_word)
+    index_of_search_word = CD.all.find_index { |cd| cd.artist == search_word }
+    @@all_cds[index_of_search_word]
+  end
+
+
+
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
