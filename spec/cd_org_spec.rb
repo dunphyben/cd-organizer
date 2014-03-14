@@ -19,6 +19,7 @@ describe 'CD' do
     it 'creates a new instance of the CD class' do
       test_cd = CD.create('Mozart', 'headbanging classical shit')
       test_cd.should be_an_instance_of CD
+
     end
 
     it 'saves the created cd' do

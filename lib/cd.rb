@@ -1,4 +1,4 @@
-require 'artist'
+# require 'artist'
 
 class CD
 
@@ -12,7 +12,7 @@ class CD
 
 
   def CD.create(title, artist)
-    new_artist = Artist.create(artist)
+    # new_artist = Artist.create(artist)
     new_cd = CD.new({:title => title, :artist => artist})
     @@all_cds << new_cd
     new_cd
@@ -35,26 +35,29 @@ class CD
   end
 
   def remove_cd(title)
-    @@all_cds = []
+    CD.all.delete(self)
   end
 
-  def CD.search(search_word)
-    index_of_search_word = CD.all.find_index { |cd| cd.artist == search_word }
-    @@all_cds[index_of_search_word]
+  def CD.search_artist(search_artist)
+    found_artists = []
+      CD.all.each do |i|
+        if search_artist == i.artist
+          found_artists << i.title
+        end
+      end
+      found_artists
   end
+
+  # def CD.search_album(search_word)
+  #   index_of_search_word = CD.all.find_index { |cd| cd.title == search_word }
+  #   @@all_cds[index_of_search_word]
+  # end
 
 end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+a = CD.create('Thriller', 'Michael Jackson')
+b = CD.create('Octahedron', 'The Mars Volta')
+c = CD.create('The Battle of Los Angeles', 'Rage Against the Machine')
+d = CD.create('Bedlam in Goliath', 'The Mars Volta')
+e = CD.create('Bad', 'Michael Jackson')
